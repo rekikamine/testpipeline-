@@ -6,8 +6,7 @@
   <version>2.0</version>
   <packaging>jar</packaging>
 
-  <name>Simple Maven example</name>
-  <url>https://jitpack.io/#jitpack/maven-simple/0.1</url>
+  <name>Simple Maven examplen  Sonar</name>
 
   <dependencies>
     <dependency>
@@ -16,6 +15,11 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+	<dependency>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.3</version>
+</dependency>
   </dependencies>
 
   <build>
