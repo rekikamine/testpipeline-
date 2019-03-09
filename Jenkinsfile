@@ -13,13 +13,13 @@ node{
     // requires SonarQube Scanner 2.8+
     def scannerHome = tool 'sonar_Scanner';
     withSonarQubeEnv('sonarQuabe') {
-      bat "${scannerHome}/bin/sonar-scanner.bat -e -Dsonar.projectName=qualite-code -Dsonar.projectVersion=2.2 -Dsonar.projectKey=amine -Dsonar.sources=src/main/java -Dsonar.language=java"
+      bat "${scannerHome}/bin/sonar-scanner.bat -e -Dsonar.projectName=qualite-code -Dsonar.projectVersion=2.3 -Dsonar.projectKey=amine -Dsonar.sources=src/main/java -Dsonar.language=java"
     }
   }
    stage('publish to Nexus'){
-  nexusPublisher nexusInstanceId: 'nexusrep', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target\\gestion-2.7.jar']], mavenCoordinate: [artifactId: 'gestion', groupId: 'org.xxx', packaging: 'jar', version: '2.9']]]
+  nexusPublisher nexusInstanceId: 'nexusrep', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target\\gestion-2.7.jar']], mavenCoordinate: [artifactId: 'gestion', groupId: 'org.xxx', packaging: 'jar', version: '3.0']]]
    }
    stage('notification'){
-      mail bcc: '', body: 'la création du job via le script effectué avec succés', cc: '', from: '', replyTo: '', subject: 'build avec succés', to: 'mohamed.amine.rekik@gmail.com'
+      mail bcc: '', body: 'la création du job via le script effectué avec succés', cc: '', from: '', replyTo: '', subject: 'build avec succés', to: 'rekik.omar26@gmail.com '
    }
    }
