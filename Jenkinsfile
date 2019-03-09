@@ -19,4 +19,7 @@ node{
     stage('publish to Nexus'){
        nexusPublisher nexusInstanceId: 'nexusrep', nexusRepositoryId: 'maven-releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'Simple Maven examplen  Sonar-2.0.jar']], mavenCoordinate: [artifactId: 'gestion', groupId: 'org.ali', packaging: 'jar', version: '2.0']]]
     }
+   stage('notification'){
+      mail bcc: '', body: 'la création du job via le script effectué avec succés', cc: '', from: '', replyTo: '', subject: 'build avec succés', to: 'mohamed.amine.rekik@gmail.com'
+   }
    }
